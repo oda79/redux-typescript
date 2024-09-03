@@ -7,7 +7,7 @@ type InputProps = {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { id, label, ...restProps } = props
-  return (<div>
+  return (<div className="control">
     <label htmlFor={id}>{label}</label>
     <input id={id} name={id} ref={ref} {...restProps} />
   </div>)

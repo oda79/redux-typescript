@@ -15,9 +15,12 @@ function isLinkType(props: ButtonButtonProps | ButtonLinkProps): props is Button
 }
 
 export default function Button(props: ButtonButtonProps | ButtonLinkProps) {
+
+  const {textOnly, children, ...restProps} = props
   const className = props.textOnly === true ? 'button button--text-only' : 'button'
+
   if (isLinkType(props))
-    return (<Link {...props} className={className}>{props.children}</Link>)
+    return (<Link {...restProps} className={className}>{children}</Link>)
   else
-    return (<button {...props} className={className}>{props.children}</button>)
+    return (<button {...restProps} className={className}>{children}</button>)
 }

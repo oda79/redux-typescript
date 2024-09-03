@@ -4,6 +4,7 @@ import { SESSIONS } from '../dummy-sessions.ts';
 import Modal, { ModalRef } from '../components/Modal.tsx';
 import { useRef } from 'react';
 import Button from '../components/Button.tsx';
+import BookForm from '../components/BookSession.tsx';
 
 export default function SessionPage() {
   const params = useParams<{ id: string }>();
@@ -42,7 +43,7 @@ export default function SessionPage() {
             </time>
             <p>
               <Button onClick={handleOpenBookSessionDialog}>Book Session</Button>
-              <Modal ref={dialogRef} />
+              <Modal ref={dialogRef}><BookForm/></Modal>
             </p>
           </div>
         </header>

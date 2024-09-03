@@ -18,7 +18,7 @@ const Modal = forwardRef<ModalRef, ModalProps>((props, ref) => {
     close: () => { dialogRef.current?.close() }
   }))
 
-  const modal = <dialog ref={dialogRef}>{props.children}</dialog>
+  const modal = <dialog className="modal" ref={dialogRef}>{props.children}</dialog>
 
   return ReactDOM.createPortal(modal, document.getElementById('modal-root') as HTMLElement)
 })
