@@ -5,7 +5,7 @@ type InputProps = {
   label: string
 } & ComponentPropsWithoutRef<'input'>
 
-export const Button = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const { id, label, ...restProps } = props
   return (<div>
     <label htmlFor={id}>{label}</label>

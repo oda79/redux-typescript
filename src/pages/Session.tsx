@@ -1,9 +1,13 @@
 import { useParams } from 'react-router-dom';
 
 import { SESSIONS } from '../dummy-sessions.ts';
+import Modal, { ModalRef } from '../components/Modal.tsx';
+import { useRef } from 'react';
+import Button from '../components/Button.tsx';
 
 export default function SessionPage() {
   const params = useParams<{ id: string }>();
+  const dialogRef = useRef<ModalRef>(null)
 
   const sessionId = params.id;
   const loadedSession = SESSIONS.find((session) => session.id === sessionId);
@@ -15,7 +19,9 @@ export default function SessionPage() {
       </main>
     );
   }
-
+  function handleOpenBookSessionDialog() {
+    dialogRef.current?.open()
+  }
 
   return (
     <main id="session-page">
@@ -35,7 +41,8 @@ export default function SessionPage() {
               })}
             </time>
             <p>
-              {/* Todo: Add button that opens "Book Session" dialog / modal */}
+              <Button onClick={handleOpenBookSessionDialog}>Book Session</Button>
+              <Modal ref={dialogRef} />
             </p>
           </div>
         </header>
